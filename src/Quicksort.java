@@ -90,27 +90,4 @@ public class Quicksort<T extends Comparable<T>> extends RecursiveAction{
 		
 	}
 	
-	public static void main(String[] args) {
-		
-		Integer[][] t = new Integer[8][50];
-		Random rand = new Random();
-		for(int i=0;i<t[0].length;i++)
-		{
-			int x = rand.nextInt(50);
-			for(int j=0;j<8;j++){
-				t[j][i] = x;
-			}
-		}
-		
-		for(int i=1;i<=8;i++)
-		{
-			Quicksort<Integer> quick = new Quicksort<>(t[i-1],0,49);
-			ForkJoinPool fj = new ForkJoinPool(i);
-			long start = System.currentTimeMillis();
-			fj.invoke(quick);
-			long stop = System.currentTimeMillis();
-			System.out.println(i + " ,TIME:" + (stop-start) );
-			
-		}
-	}
 }
